@@ -1,4 +1,5 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
+<<<<<<< HEAD
 # Set screen management as the screen manager
 ScreenManagement:
     # Set transition type to fade
@@ -152,3 +153,156 @@ ScreenManagement:
             # Return to dashboard
             on_release: app.root.current = "main"
             text: "Return to dashboard"
+=======
+
+ScreenManagement:
+	transition: FadeTransition()
+	MainScreen:
+	messageOrganisersScreen:
+	sendLocationScreen:
+	inboxScreen:
+	distressScreen:
+	
+
+
+	
+<MainScreen>:
+	name: "main"
+	GridLayout:
+		cols: 1
+		
+		
+		
+		
+		Label:
+			text: "Welcome to the Expedition Management Tracker"
+			font_name: 'SegoeUIBold'
+			
+					
+		Button:
+			pos_hint: {"x": 0, 'top':1}
+			text: "Send manual location update"
+			font_name: 'SegoeUI'
+			background_color: 0, 1, 0, 1
+			on_release: app.root.current = "sendLocation"
+			
+			
+			
+		Button:
+			text: "Message the organisers"
+			font_name: 'SegoeUI'
+			background_color: 0, 1, 0, 1
+			on_release: app.root.current = "msgOrganisers"
+			
+		Button:
+			text: "Message inbox"
+			font_name: 'SegoeUI'
+			background_color: 0, 1, 0, 1
+			on_release: app.root.current = "inbox"
+			
+		Button:
+			text: "Send distress signal"
+			font_name: 'SegoeUI'
+			background_color: 1, 0, 0, 1
+			on_release: app.root.current = "distress"
+	
+	
+		
+<messageOrganisersScreen>:
+	msgInput: msgInput
+	
+	name: "msgOrganisers"
+	GridLayout:
+		cols: 1
+		
+		Label:
+			text: "Message the organisers"
+			font_name: 'SegoeUIBold'
+		
+		
+		Label:
+			text: "Compose message: "
+			
+		TextInput:
+			id: msgInput
+			multiline: True
+			
+		Button:
+			text: "Send"
+			background_color: 0, 1, 0, 1
+			on_release: root.sendMsg() 
+	
+		Button:
+			on_release: app.root.current = "main"
+			text: "Return to dashboard"
+			
+			
+<sendLocationScreen>:
+	name: "sendLocation"
+	GridLayout:
+		cols: 1
+		
+		Label:
+			text: "Send manual location update"
+			font_name: 'SegoeUIBold'
+		
+		
+		Button:
+			text: "Send Update"
+			background_color: 0, 1, 0, 1
+			on_release: root.sendManualLocation() 
+	
+		Button:
+			on_release: app.root.current = "main"
+			text: "Return to dashboard"
+			
+<inboxScreen>:
+	name: "inbox"
+	GridLayout:
+		cols: 1
+		
+		Label:
+			text: "Message inbox"
+			font_name: 'SegoeUIBold'
+		
+		
+		Label:
+			text: "Message one here"
+			
+		Label:
+			text: "Message two here"
+			
+		Label:
+			text: "Message three here"
+	
+		Button:
+			on_release: app.root.current = "main"
+			text: "Return to dashboard"
+		
+<distressScreen>:
+	name: "distress"
+	GridLayout:
+		cols: 1
+		
+		Label:
+			text: "Send a distress signal"
+			font_name: 'SegoeUIBold'
+		
+		
+		Label:
+			text: "Remain calm and press the button below."
+		
+		Label:
+			text: "For immediate assistance, always call 999"
+			
+		Button:
+			on_release: root.sendDistress()
+			text: "Send Distress Signal"
+			background_color: 1, 0, 0, 1
+	
+		Button:
+			on_release: app.root.current = "main"
+			text: "Return to dashboard"
+				
+
+>>>>>>> parent of 305bed6... Added comments
